@@ -1,42 +1,42 @@
 <script setup lang="ts">
-import { Link, usePage } from "@inertiajs/vue3";
-import { BookOpen, Folder, LayoutGrid, Menu, Search } from "@lucide/vue";
-import { computed } from "vue";
-import AppLogo from "@/components/AppLogo.vue";
-import AppLogoIcon from "@/components/AppLogoIcon.vue";
-import Breadcrumbs from "@/components/Breadcrumbs.vue";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Link, usePage } from '@inertiajs/vue3';
+import { BookOpen, Folder, LayoutGrid, Menu, Search } from '@lucide/vue';
+import { computed } from 'vue';
+import AppLogo from '@/components/AppLogo.vue';
+import AppLogoIcon from '@/components/AppLogoIcon.vue';
+import Breadcrumbs from '@/components/Breadcrumbs.vue';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 import {
     NavigationMenu,
     NavigationMenuItem,
     NavigationMenuList,
     navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu';
 import {
     Sheet,
     SheetContent,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "@/components/ui/sheet";
+} from '@/components/ui/sheet';
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@/components/ui/tooltip";
-import UserMenuContent from "@/components/UserMenuContent.vue";
-import { useCurrentUrl } from "@/composables/useCurrentUrl";
-import { getInitials } from "@/composables/useInitials";
-import { toUrl } from "@/lib/utils";
-import { index as projectsIndex } from "@/routes/projects";
-import type { BreadcrumbItem, NavItem } from "@/types";
+} from '@/components/ui/tooltip';
+import UserMenuContent from '@/components/UserMenuContent.vue';
+import { useCurrentUrl } from '@/composables/useCurrentUrl';
+import { getInitials } from '@/composables/useInitials';
+import { toUrl } from '@/lib/utils';
+import { index as projectsIndex } from '@/routes/projects';
+import type { BreadcrumbItem, NavItem } from '@/types';
 
 type Props = {
     breadcrumbs?: BreadcrumbItem[];
@@ -51,11 +51,11 @@ const auth = computed(() => page.props.auth);
 const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
 
 const activeItemStyles =
-    "text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100";
+    'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100';
 
 const mainNavItems: NavItem[] = [
     {
-        title: "Projects",
+        title: 'Projects',
         href: projectsIndex(),
         icon: LayoutGrid,
     },

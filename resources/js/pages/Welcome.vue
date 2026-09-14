@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Head, Link } from "@inertiajs/vue3";
-import { login } from "@/routes";
-import { register } from "@/routes";
-import { index as projectsIndex } from "@/routes/projects";
+import { Head, Link } from '@inertiajs/vue3';
+import { login } from '@/routes';
+import { register } from '@/routes';
+import { index as projectsIndex } from '@/routes/projects';
 </script>
 
 <template>

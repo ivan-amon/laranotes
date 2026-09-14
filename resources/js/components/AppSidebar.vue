@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Link } from "@inertiajs/vue3";
-import { BookOpen, FolderGit2, LayoutGrid } from "@lucide/vue";
-import AppLogo from "@/components/AppLogo.vue";
-import NavFooter from "@/components/NavFooter.vue";
-import NavMain from "@/components/NavMain.vue";
-import NavUser from "@/components/NavUser.vue";
+import { Link } from '@inertiajs/vue3';
+import { BookOpen, FolderGit2, LayoutGrid } from '@lucide/vue';
+import AppLogo from '@/components/AppLogo.vue';
+import NavFooter from '@/components/NavFooter.vue';
+import NavMain from '@/components/NavMain.vue';
+import NavUser from '@/components/NavUser.vue';
 import {
     Sidebar,
     SidebarContent,
@@ -13,13 +13,13 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { index as projectsIndex } from "@/routes/projects";
-import type { NavItem } from "@/types";
+} from '@/components/ui/sidebar';
+import { index as projectsIndex } from '@/routes/projects';
+import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
     {
-        title: "Projects",
+        title: 'Projects',
         href: projectsIndex(),
         icon: LayoutGrid,
     },

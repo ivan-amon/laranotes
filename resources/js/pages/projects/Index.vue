@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Head, Link } from "@inertiajs/vue3";
-import { ArrowRight, CirclePlus, FolderOpen } from "@lucide/vue";
-import { Button } from "@/components/ui/button";
-import { create, index as projectsIndex } from "@/routes/projects";
-import type { Project } from "@/types";
+import { Head, Link } from '@inertiajs/vue3';
+import { ArrowRight, CirclePlus, FolderOpen } from '@lucide/vue';
+import { Button } from '@/components/ui/button';
+import { create, index as projectsIndex } from '@/routes/projects';
+import type { Project } from '@/types';
 
 defineProps<{
     projects: Project[];
@@ -13,7 +13,7 @@ defineOptions({
     layout: {
         breadcrumbs: [
             {
-                title: "Projects",
+                title: 'Projects',
                 href: projectsIndex(),
             },
         ],

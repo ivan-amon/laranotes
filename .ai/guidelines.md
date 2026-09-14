@@ -5,6 +5,7 @@ LaraNotes is an app for creating projects with documents, think of minimal versi
 ## Database Schema
 
 ### Tables:
+
 - `users`: id, name, email, email_verified_at, password, remeber_token and timestamps
 - `projects`: id, user_id, title (varchar(255)), description (varchar(1000), nullable) and timestamps
 - `pages`: id, project_id, content (text) and timestamps
@@ -20,4 +21,4 @@ LaraNotes is an app for creating projects with documents, think of minimal versi
 ### Premium Suscrption
 
 - Each premium user shall have unlimited projects
-- Each project of a premium user shall have unlimited pages 
+- Each project of a premium user shall have unlimited pages
