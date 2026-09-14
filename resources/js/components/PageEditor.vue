@@ -31,6 +31,13 @@ defineProps<{
         <InputError :message="errors.content" />
 
         <div class="flex flex-col gap-2 sm:flex-row sm:justify-end">
+            <div
+                v-if="$slots['leading-actions']"
+                class="flex flex-col gap-2 sm:mr-auto sm:flex-row"
+            >
+                <slot name="leading-actions" />
+            </div>
+
             <Button
                 type="submit"
                 :disabled="processing"

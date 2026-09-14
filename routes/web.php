@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PagePdfExportController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('projects', ProjectController::class);
 
     Route::resource('projects.pages', PageController::class)->scoped();
+    Route::post('projects/{project}/pages/{page}/export', PagePdfExportController::class)
+        ->scopeBindings()
+        ->name('projects.pages.export');
 });
 
 require __DIR__.'/settings.php';

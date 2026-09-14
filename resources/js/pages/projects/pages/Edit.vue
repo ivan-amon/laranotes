@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, setLayoutProps } from '@inertiajs/vue3';
 import DeletePage from '@/components/DeletePage.vue';
+import ExportPagePdf from '@/components/ExportPagePdf.vue';
 import PageEditor from '@/components/PageEditor.vue';
 import { index as projectsIndex } from '@/routes/projects';
 import { edit, index as pagesIndex, update } from '@/routes/projects/pages';
@@ -31,6 +32,10 @@ setLayoutProps<{ breadcrumbs: BreadcrumbItem[] }>({
             :form="update.form({ project: project.id, page: page.id })"
             :content="page.content"
         >
+            <template #leading-actions>
+                <ExportPagePdf :project="project" :page="page" />
+            </template>
+
             <template #actions>
                 <DeletePage :project="project" :page="page" />
             </template>
