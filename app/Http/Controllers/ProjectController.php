@@ -80,7 +80,7 @@ class ProjectController extends Controller
 
         Inertia::flash('toast', ['type' => 'success', 'message' => __('Project updated.')]);
 
-        return to_route('projects.show', $project);
+        return back();
     }
 
     /**
