@@ -16,3 +16,8 @@ LaraNotes is an app for creating projects with documents, think of minimal versi
 - A user can't see, modify or delete other users projects & pages
 - Each project tile shall have minimum 3 characters and maximum 255
 - Each project description (which is optional) shall have minimum 3 characters and maximum 100
+
+### Premium Suscrption
+
+- Each premium user shall have unlimited projects
+- Each project of a premium user shall have unlimited pages 

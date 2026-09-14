@@ -14,13 +14,13 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { dashboard } from "@/routes";
+import { index as projectsIndex } from "@/routes/projects";
 import type { NavItem } from "@/types";
 
 const mainNavItems: NavItem[] = [
     {
         title: "Projects",
-        href: dashboard(),
+        href: projectsIndex(),
         icon: LayoutGrid,
     },
 ];
@@ -34,7 +34,7 @@ const footerNavItems: NavItem[] = [];
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
-                        <Link :href="dashboard()">
+                        <Link :href="projectsIndex()">
                             <AppLogo />
                         </Link>
                     </SidebarMenuButton>
