@@ -27,7 +27,7 @@ class PageController extends Controller
     }
 
     /**
-     * Show the form for creating a new page.
+     * Show the editor for creating a new page.
      */
     public function create(Project $project): Response
     {
@@ -39,15 +39,15 @@ class PageController extends Controller
     }
 
     /**
-     * Store a newly created page in the project.
+     * Store a newly created page and open it in the editor.
      */
     public function store(StorePageRequest $request, Project $project): RedirectResponse
     {
-        $project->pages()->create($request->validated());
+        $page = $project->pages()->create($request->validated());
 
         Inertia::flash('toast', ['type' => 'success', 'message' => __('Page created.')]);
 
-        return to_route('projects.pages.index', $project);
+        return to_route('projects.pages.edit', [$project, $page]);
     }
 
     /**
@@ -64,7 +64,7 @@ class PageController extends Controller
     }
 
     /**
-     * Show the form for editing the specified page.
+     * Show the editor for the specified page.
      */
     public function edit(Project $project, Page $page): Response
     {
@@ -77,15 +77,15 @@ class PageController extends Controller
     }
 
     /**
-     * Update the specified page.
+     * Save the specified page and return to the editor.
      */
     public function update(UpdatePageRequest $request, Project $project, Page $page): RedirectResponse
     {
         $page->update($request->validated());
 
-        Inertia::flash('toast', ['type' => 'success', 'message' => __('Page updated.')]);
+        Inertia::flash('toast', ['type' => 'success', 'message' => __('Page saved.')]);
 
-        return to_route('projects.pages.show', [$project, $page]);
+        return to_route('projects.pages.edit', [$project, $page]);
     }
 
     /**
