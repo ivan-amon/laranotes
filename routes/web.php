@@ -11,9 +11,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('projects', ProjectController::class);
 
     Route::resource('projects.pages', PageController::class)->scoped();
-    Route::post('projects/{project}/pages/{page}/export', PagePdfExportController::class)
+    Route::post('projects/{project}/pages/{page}/export', [PagePdfExportController::class, 'store'])
         ->scopeBindings()
-        ->name('projects.pages.export');
+        ->name('projects.pages.export.store');
+    Route::get('projects/{project}/pages/{page}/export', [PagePdfExportController::class, 'show'])
+        ->scopeBindings()
+        ->name('projects.pages.export.show');
 });
 
 require __DIR__.'/settings.php';

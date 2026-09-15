@@ -13,10 +13,12 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property int $project_id
  * @property string $content
+ * @property string $export_status
+ * @property string|null $export_file
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
-#[Fillable(['content'])]
+#[Fillable(['content', 'export_status', 'export_file'])]
 class Page extends Model
 {
     /** @use HasFactory<PageFactory> */

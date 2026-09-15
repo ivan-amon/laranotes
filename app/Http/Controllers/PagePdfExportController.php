@@ -2,26 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessPdf;
 use App\Models\Page;
 use App\Models\Project;
-use App\Services\PdfProcessorService;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Gate;
 
 class PagePdfExportController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Queue a PDF export of the page.
      */
-    public function __invoke(Request $request, Project $project, Page $page, PdfProcessorService $pdfProcessorService)
+    public function store(Project $project, Page $page): JsonResponse
     {
         Gate::authorize('export', $page);
 
-        $fileName = $pdfProcessorService->generate($page->content);
+        $page->update([
+            'export_status' => 'pending',
+            'export_file' => null,
+        ]);
 
+        ProcessPdf::dispatch($page);
+
+        return $this->exportStatus($page, 202);
+    }
+
+    /**
+     * Get the status of the page's latest PDF export.
+     */
+    public function show(Project $project, Page $page): JsonResponse
+    {
+        Gate::authorize('export', $page);
+
+        return $this->exportStatus($page);
+    }
+
+    /**
+     * Build the export status response for the page.
+     */
+    protected function exportStatus(Page $page, int $status = 200): JsonResponse
+    {
         return response()->json([
-            'message' => 'PDF Generated Successfully.',
-            'file' => $fileName,
-        ], 200);
+            'status' => $page->export_status,
+            'file' => $page->export_file,
+        ], $status);
     }
 }
