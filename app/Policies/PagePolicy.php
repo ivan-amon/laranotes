@@ -58,6 +58,14 @@ class PagePolicy
     }
 
     /**
+     * Determine whether the user can export the page to PDF.
+     */
+    public function export(User $user, Page $page): bool
+    {
+        return $this->ownsProject($user, $page->project);
+    }
+
+    /**
      * Determine whether the user owns the project.
      */
     protected function ownsProject(User $user, Project $project): bool
